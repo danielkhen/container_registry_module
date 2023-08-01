@@ -1,0 +1,35 @@
+formatter: "markdown table"
+
+sections:
+  show:
+    - providers
+    - inputs
+    - outputs
+    - resources
+    - modules
+
+content: |-
+  
+  {{ .Providers }}
+  
+  {{ .Inputs }}
+  
+  {{ .Outputs }}
+  
+  {{ .Resources }}
+  
+  {{ .Modules }}
+  
+  ## Example Code
+  
+  ```hcl
+  {{ include "examples/main.tf" }}
+  ```
+
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
