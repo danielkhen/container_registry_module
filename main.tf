@@ -21,7 +21,6 @@ module "hub_acr_private_endpoint" {
   name                = var.private_endpoint_name
   location            = var.location
   resource_group_name = var.resource_group_name
-  nic_name            = var.nic_name
   private_dns_enabled = var.private_dns_enabled
   dns_name            = var.dns_name
   log_analytics_id    = var.log_analytics_id
