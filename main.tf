@@ -15,8 +15,8 @@ locals {
 }
 
 module "private_dns_zone" {
-  source   = "github.com/danielkhen/private_dns_zone_module"
-  for_each = var.private_dns_enabled ? [true] : []
+  source = "github.com/danielkhen/private_dns_zone_module"
+  count  = var.private_dns_enabled ? 1 : 0
 
   name                = var.dns_name
   resource_group_name = var.resource_group_name
