@@ -35,12 +35,6 @@ variable "private_endpoint_enabled" {
   default     = false
 }
 
-variable "private_endpoint_name" {
-  description = "(Optional) The name of the private endpoint."
-  type        = string
-  default     = null
-}
-
 variable "private_dns_enabled" {
   description = "(Optional) Should the private endpoint be attached to a private dns zone."
   type        = bool

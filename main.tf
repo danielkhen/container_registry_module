@@ -23,11 +23,15 @@ module "private_dns_zone" {
   vnet_links          = var.vnet_links
 }
 
+locals {
+  private_endpoint_name = "${var.name}-pe"
+}
+
 module "hub_acr_private_endpoint" {
   source   = "github.com/danielkhen/private_endpoint_module"
   for_each = var.private_endpoint_enabled ? [true] : []
 
-  name                = var.private_endpoint_name
+  name                = local.private_endpoint_name
   location            = var.location
   resource_group_name = var.resource_group_name
   private_dns_enabled = var.private_dns_enabled
