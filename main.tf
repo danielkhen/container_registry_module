@@ -28,8 +28,8 @@ locals {
 }
 
 module "hub_acr_private_endpoint" {
-  source   = "github.com/danielkhen/private_endpoint_module"
-  for_each = var.private_endpoint_enabled ? [true] : []
+  source = "github.com/danielkhen/private_endpoint_module"
+  count  = var.private_endpoint_enabled ? 1 : 0
 
   name                = local.private_endpoint_name
   location            = var.location
